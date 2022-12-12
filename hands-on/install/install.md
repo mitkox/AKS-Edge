@@ -141,7 +141,7 @@ Collect the AKS Edge Logs after the deployment and review them as they are all i
 Get-AksEdgeLogs
  ```
 The Get-AksEdgeLogs cmdlet collects all the logs from the AKS EE deployment and installation. It compresses them and outputs the bundled logs in the 
-form of a .zip folder normally created here C:\ProgramData\AksIot\logs\
+form of a .zip folder normally created here C:\ProgramData\AksEdge\logs\
 
  
 
