@@ -134,3 +134,43 @@ kubectl get pods -A -o wide
 PS: Multi-node AKS on Edge on Windows will not work on Azure because it will not allow to create Hyper-V external virtual switch due to the limit of Azure network backbone, but we can create external swithch on Physical PC's Hyper-V, then it's possible to create a VM on the same Hyper-V host to communicate with the mariner VM via that external switch with the local ip in the pysical pc's local network. 
 
 
+## Execise 3: Implment single machine deployment
+
+We have a Sample application that is a basic voting app consisting of a front and back end, which is based on Microsoft's azure-vote-front image. The container image for this application is hosted on Azure Container Registry (ACR).
+
+You can find the sample yaml file at location AKS-Edge/blob/main/samples/others/linux-sample.yaml
+
+To deploy your application, use the kubectl apply 
+
+'''bash
+kubectl apply -f linux-sample.yaml
+'''bash
+
+Wait a few minutes for the pods to be in the running state. Please run the command below after that
+
+'''bash
+kubectl get pods -o wide
+'''bash
+
+![RDP](./imgs/az-vm-app.jpg)
+
+
+To check the external IP and port, please use the command below
+
+'''bash
+kubectl get services
+'''bash
+
+Initially, the EXTERNAL-IP for the azure-vote-front service is shown as pending. When the EXTERNAL-IP address changes from pending to an actual public IP address, you can use the IP address assigned to the service.
+
+PS:On single machine clusters, if you deployed your Kubernetes cluster without specifying a -ServiceIPRangeSize, you will not have allocated IPs for your workload services and you won't have an external IP address.
+
+You can now append the external port to the VM's IP address (for example, 192.168.1.12:30432).
+
+Test your application
+======================
+
+To see the application in action, open a web browser to the external IP address of your service:
+
+![RDP](./imgs/az-vm-linuxapp.jpg)
+
