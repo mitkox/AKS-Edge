@@ -113,6 +113,7 @@ $jsonObj.EndUser.AcceptEula = $true
 $jsonObj.EndUser.AcceptOptionalTelemetry = $true
 $jsonObj.LinuxVm.CpuCount = 4
 $jsonObj.LinuxVm.MemoryInMB = 8192
+$jsonObj.LinuxVm.DataSizeinGB = 40
 $jsonObj.Network.ServiceIpRangeSize = 40
 
 New-AksEdgeDeployment -JsonConfigString ($jsonObj | ConvertTo-Json)
