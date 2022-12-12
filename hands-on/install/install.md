@@ -136,6 +136,8 @@ PS: Multi-node AKS on Edge on Windows will not work on Azure because it will not
 
 ## Execise 3: Implment single machine deployment
 
+
+
 We have a Sample application that is a basic voting app consisting of a front and back end, which is based on Microsoft's azure-vote-front image. The container image for this application is hosted on Azure Container Registry (ACR).
 
 You can find the sample yaml file at location AKS-Edge/blob/main/samples/others/linux-sample.yaml
