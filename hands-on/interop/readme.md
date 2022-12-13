@@ -53,7 +53,7 @@ To exercise this sample, you'll need the following:
 * A single deployment of AKS Edge Cluster is up and running on a Windows device. If you haven't done this step, please complete [AKS Edge Essentials Installation](../install/install.md) session first. 
 * An [Azure Subscription](https://azure.microsoft.com/free/) in which you have rights to deploy resources. 
 * An [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) in which you have right to push and pull containers.
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed to build and push container.
+* Install [WSLv2](https://learn.microsoft.com/en-us/windows/wsl/install) and [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed to build and push container.
 * Install [.NET 6 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0), [Visual Studio Code](https://code.visualstudio.com/) and [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) to build and run Windows console applciation.
 
 ## Hands-on Lab instructions

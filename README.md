@@ -12,7 +12,7 @@ This repository complements primary Azure Kubernetes Services Edge Essentials (a
 |----------------|------------------|
 | [install](./hands-on/install/install.md) | Procedure and troubleshooting AKS EE installation. |
 | [arc](./hands-on/arc/arc.md) | Connection to Azure via Azure ARC and usage of proposed extensions (eg. GitOps) | 
-| [interop](./hands-on/interop/interop.md) |  Interoperability between AKS EE K8s/K3s cluster and native Windows applications. | 
+| [interop](./hands-on/interop/readme.md) |  Interoperability between AKS EE K8s/K3s cluster and native Windows applications. | 
 | cncf (to come) |  Usage of additional CNCF extension to extend AKS EE K8s/K3s cluster capabilities (eg. Helm, NGINX ...). | 
 
 ## Important Links
