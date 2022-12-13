@@ -21,8 +21,8 @@ To exercise this sample, you'll need the following:
 * A github account with access permissions allowing to create a fork from an external repository and to commit in this fork.
 
 * 💡 (Optional) If Windows machine (AKS EE cluster is installed on) is not authorized to sign in the Azure subscription, you will need either:
----- Another Azure subscription to create Azure Arc ressources. [Azure credits for Visual Studio subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) is opening subscription which are not restricting Windows machine authorized to sign. 
----- Another Windows machine with AKS EE installed (no need to have a cluster deployed on this one, just need to access AKS EE scripts) to create a service principal in the Azure Subscription.
+* ----> Another Azure subscription to create Azure Arc ressources. [Azure credits for Visual Studio subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/) is opening subscription which are not restricting Windows machine authorized to sign. 
+* ----> Another Windows machine with AKS EE installed (no need to have a cluster deployed on this one, just need to access AKS EE scripts) to create a service principal in the Azure Subscription.
 
 ## 1. Configure your Azure environment
 
@@ -55,6 +55,8 @@ Once you have completed these instructions, you should have a 'ready to connect'
 
 Follow steps below, explained in [AKS EE documentation instructions](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-edge-howto-connect-to-arc#2-connect-your-cluster-to-arc) to connect AKS EE cluster to Arc.
 
+💡 AKS EE installation includes both [Azure Connected Machine agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview) and [Azure Arc-enabled Kubernetes agent](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-agent-overview)
+
 #### STEP 2.1: Load JSON configuration into the AksEdgeShell using Read-AideUserConfig and verify that the values are updated using Get-AideUserConfig
 ```bash
 Read-AideUserConfig
@@ -72,7 +74,6 @@ Initialize-AideArc
 Connect-AideArc
 ```
 ![image](https://user-images.githubusercontent.com/10614734/207281095-afc7289f-0ac6-424b-a9f0-87e01159509a.png)
-
 
 ## 3. Explore AKS EE cluster in Azure portal
 
