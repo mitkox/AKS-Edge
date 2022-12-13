@@ -186,7 +186,7 @@ PS:On single machine clusters, if you deployed your Kubernetes cluster without s
 
 You can now append the external port to the VM's IP address (for example, 192.168.1.12:30432).
 
-Test your application 
+Test your Application 
 ======================
 
 To see the application in action, open a web browser to the external IP address of your service:
