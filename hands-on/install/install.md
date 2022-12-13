@@ -183,13 +183,13 @@ kubectl get services
 
 Initially, the EXTERNAL-IP for the azure-vote-front service is shown as pending. When the EXTERNAL-IP address changes from pending to an actual public IP address, you can use the IP address assigned to the service.
 
-PS: On single machine clusters, if you deployed your Kubernetes cluster without specifying a -ServiceIPRangeSize, you will not have allocated IPs for your workload services and you won't have an external IP address (in this case, find the IP address of your Linux VM with Get-AksEdgeNodeAddr command)
+<img src=./imgs/sample-app-ip.png width=80% />    
 
-You can now append the external port to the VM's IP address (for example, 192.168.1.12:30432).
+PS: On single machine clusters, if you deployed your Kubernetes cluster without specifying a -ServiceIPRangeSize, you will not have allocated IPs for your workload services and you won't have an external IP address (in this case, find the IP address of your Linux VM with Get-AksEdgeNodeAddr command)
 
 #### STEP 2: Test your application 
 
-To see the application in action, open a web browser to the external IP address of your service:
+To see the application in action, open a web browser to the external IP address of your service, no need to append the external port as it has been mapped to the http default port 80.
 
 <img src=./imgs/az-vm-linuxapp.jpg width=80% />
 
