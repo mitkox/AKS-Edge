@@ -4,7 +4,7 @@
 
 - [x] [Prerequisite - AKS Edge Essentials Installation](../../install/install.md)
 - [x] [Step 1 - Build and push service container to Azure Container Registry](./01_build_and_push.md)
-- [ ] [Step 2 - Deploy services onto AKS Edge Cluster](./02_deploy.md)
+- [ ] [Step 2 - Deploy services onto AKS EE cluster](./02_deploy.md)
 - [ ] [Step 3 - Build and run Windows console application](./03_win_app.md)
 
 ---  

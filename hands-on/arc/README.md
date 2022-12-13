@@ -33,13 +33,13 @@ Follow steps below, explained in [AKS EE documentation instructions](https://lea
 #### Step 1.1 : Create and verify a resource group for AKS Edge Essentials Azure resources
 ![image](https://user-images.githubusercontent.com/10614734/207283890-8d3d00b3-068d-4464-bf86-59b7f7dcaf74.png)
 
-#### STEP 1.2 : Specify the required names for the resource group and service principal in the aide-userconfig.json file along with your subscription/tenant information.
+#### Step 1.2 : Specify the required names for the resource group and service principal in the aide-userconfig.json file along with your subscription/tenant information.
 ![image](https://user-images.githubusercontent.com/10614734/207283953-bd9d54df-97f7-49b7-8266-f2e4a4fd9cdc.png)
 
-#### STEP 1.3: Run or double-click the AksEdgePrompt.cmd file (tools folder)
+#### Step 1.3 : Run or double-click the AksEdgePrompt.cmd file (tools folder)
 ![image](https://user-images.githubusercontent.com/10614734/207279237-fde5a58a-e5b7-4a1b-b50d-e5b598bdd984.png)
 
-#### STEP 1.4: Run AksEdgeAzureSetup.ps1 (tools\scripts\AksEdgeAzureSetup folder)
+#### Step 1.4 : Run AksEdgeAzureSetup.ps1 (tools\scripts\AksEdgeAzureSetup folder)
 ```bash
 # prompts for interactive login for service principal creation with Contributor role at resource group level
 ..\tools\scripts\AksEdgeAzureSetup\AksEdgeAzureSetup.ps1 .\aide-userconfig.json -spContributorRole
@@ -55,20 +55,26 @@ Once you have completed these instructions, you should have a 'ready to connect'
 
 Follow steps below, explained in [AKS EE documentation instructions](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-edge-howto-connect-to-arc#2-connect-your-cluster-to-arc) to connect AKS EE cluster to Arc.
 
-💡 AKS EE installation includes both [Azure Connected Machine agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview) and [Azure Arc-enabled Kubernetes agent](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-agent-overview)
+💡 AKS EE installation includes both [Azure Connected Machine agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview) and [Azure Arc-enabled Kubernetes agent](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-agent-overview).
+[Azure Connected Machine agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview) enables connectivity between Windows host and Azure ARC.
+[Azure Arc-enabled Kubernetes agent](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-agent-overview) enables connectivity between AKS EE cluster and Azure ARC.
+Thus, connection to ARC (Step 2.3) may be requested:
+- both to Windows host and AKS EE cluster (Connect-AideArc)
+- only to Windows host (Connect-AideArcServer)
+- only AKS EE cluster (Connect-AideArcKubernetes)
 
-#### STEP 2.1: Load JSON configuration into the AksEdgeShell using Read-AideUserConfig and verify that the values are updated using Get-AideUserConfig
+#### Step 2.1 : Load JSON configuration into the AksEdgeShell using Read-AideUserConfig and verify that the values are updated using Get-AideUserConfig
 ```bash
 Read-AideUserConfig
 Get-AideUserConfig
 ```
-#### STEP 2.2: Run Initialize-AideArc
+#### Step 2.2 : Run Initialize-AideArc
 ```bash
 Initialize-AideArc
 ```
 ![image](https://user-images.githubusercontent.com/10614734/207280979-dca50aaf-e3b0-4393-ac97-ac7ce83827b9.png)
 
-#### STEP 2.3: Run Connect-AideArc
+#### Step 2.3 : Run Connect-AideArc
 ```bash
 # Connect Arc-enabled server and Arc-enabled Kubernetes
 Connect-AideArc
@@ -79,7 +85,7 @@ Connect-AideArc
 
 Follow steps below, explained in [AKS EE documentation instructions](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-edge-howto-connect-to-arc#3-view-aks-edge-resources-in-azure) to explore AKS EE cluster in Azure portal.
 
-#### STEP 3.1:
+#### Step 3.1 :
 
 Navigate to Azure Arc to explore details on your AKS EE cluster.
 
@@ -93,3 +99,5 @@ You can also run Get-AideArcKubernetesServiceToken to retrieve your service toke
 Navigate in your AKS EE cluster to explore, namespaces, workloads (pods), services ...
 
 ## 4. Deploy application with Azure Arc and GitOps
+
+Follow steps below, explained in [AKS EE documentation instructions](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-edge-howto-use-gitops) to deploy application with Azure Arc and GitOps
