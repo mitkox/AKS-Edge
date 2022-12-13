@@ -2,7 +2,7 @@
 # AKS Edge Essentials Installation 
 
 ## Lab Overview  
-In this lab, you will begin by reviewing the AKS EE's deployment prerequisites and setup the machine to start the deployment. You will need to download and install the k8s or k3s installer for AKS EE, then use the deployment CLI with configuration to complete single machine deployment on Azure VM or physical machine, or multiple node cluster deployment on physical machine.   
+In this lab, you will begin by reviewing the AKS Edge Essentials (aka AKS EE) deployment prerequisites and setup the machine to start the deployment. You will need to download and install the k8s or k3s installer for AKS EE, then use the deployment CLI with configuration to complete single machine deployment on Azure VM or physical machine, or multiple node cluster deployment on physical machine.
   
 In summary, the lab includes the following exercises:  
 * Review the hands on Lab Prerequisites
@@ -22,11 +22,11 @@ In summary, the lab includes the following exercises:
 
 ## Lab Instructions
 
-### Exercise 1: Setup your machine and install AKS Edge Essentials (ower: Guomin)
+### Exercise 1: Setup your machine and install AKS EE
 
-In this lab, we will use Azure virtual machine to do a single machince setup and deployment.
+In this lab, we will use Azure virtual machine to do a single machine setup and deployment.
 
-#### Step 1: Create an Azure virtual machine with WIndows 11 Pro installed.  
+#### Step 1: Create an Azure virtual machine with Windows 11 Pro installed.  
   
 1. Sign in to Azure  
 Sign in to Azure portal at: https://portal.azure.com.
@@ -61,18 +61,18 @@ Sign in to Azure portal at: https://portal.azure.com.
     ```
 2. Restart the virtual machine to enable nested virtualization.
 
-3. check if Hyper-V is enabled using following command:
+3. Check if Hyper-V is enabled using following command:
     ```bash
     Get-WindowsOptionalFeature -Online -FeatureName *hyper*
     ```
 
 #### STEP 4: Install K8S or K3S in Windows 11 Pro
-AKS Edge Essentials can be deployed on either a single machine or on multiple machines forming a cluster. For both cases it must install AKS on each of the machines using the installer showed [HERE](https://review.learn.microsoft.com/en-us/azure/aks/hybrid/aks-edge-howto-setup-machine?branch=release-aks-lite#download-the-installer) to install K8S or K3S as its Kubernetes distribution, but for the same cluster you can only install the same Kubernetes distribution(k8s or k3s) and can't mixed.  
+AKS EE can be deployed on either a single machine or on multiple machines forming a cluster. For both cases it must install AKS EE on each of the machines using the installer showed [HERE](https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-edge-howto-setup-machine#download-the-installer) to install K8S or K3S as its Kubernetes distribution, but for the same cluster you can only install the same Kubernetes distribution(k8s or k3s) and can't mixed.  
 
 In this lab, we will use the K8S as Kubernetes distribution but you can deside if you want K3S, the installation steps is similar.
 
 1. Download K8S installer  
-    Downlad K8S installer from this [link](https://aka.ms/aks-edge/k8s-msi).
+    Download K8S installer from this [link](https://aka.ms/aks-edge/k8s-msi).
 
 2. Install K8S  
     Double-click the downloaded **AksEdge-K8s-0.7.22335.1024.msi** to start installation.  
@@ -93,18 +93,18 @@ Now you are already setup your machine as Linux node.
 **OPTIONAL**: If you also want to add Windows node support to the machine please take below additional steps:
 
 1. Download the Windows node files from this [Link](https://aka.ms/aks-edge/windows-node-zip) and extract to a folder  
-2. Open Powershell as Administrator and navigate to above folder that contains the Windows node files.
+2. Open Powershell as Administrator and navigate to folder above that contains the Windows node files.
 3. Run below command to start install
     ```bash
     msiexec.exe /i AksEdge-k8s-0.7.22335.1024.msi ADDLOCAL=CoreFeature,WindowsNodeFeature
     ```
 4. Now you are ready to do **Linux & Windows** node mixed deployment
 
-Please **NOTE** once again, you must do above steps in each machine in your cluster to setup your machines befor making Aks Edge deployment in the next lab sections. 
+Please **NOTE** once again, you must do above steps in each machine in your cluster to setup your machines before making AKS EE deployment in the next lab sections. 
   
-## Execise 2: Implment single machine deployment
+## Exercise 2: Implement single machine deployment
 
-You can run the New-AksEdgeDeployment cmdlet to deploy a single-machine AKS Edge cluster with a single Linux control-plane node, however we need to pass ServiceIpRangeSize = 10, which is not a default option. On single machine cluster, if you deployed your Kubernetes cluster without specifying a -ServiceIPRangeSize, you will not have allocated IPs for your workload services and you won't have an external IP address. Hence we will use the JSON object and pass it as a string:
+You can run the New-AksEdgeDeployment cmdlet to deploy a single-machine AKS EE cluster with a single Linux control-plane node, however we need to pass ServiceIpRangeSize = 10, which is not a default option. On single machine cluster, if you deployed your Kubernetes cluster without specifying a -ServiceIPRangeSize, you will not have allocated IPs for your workload services and you won't have an external IP address. Hence we will use the JSON object and pass it as a string:
 
 ```bash
 $jsonString = New-AksEdgeConfig -outFile .\mydeployconfig.json
@@ -136,7 +136,7 @@ Describe some of the pods' resources in verbose mode:
 kubectl describe pod kube-apiserver -n kube-system
  ```
  
-Collect the AKS Edge Logs after the deployment and review them as they are all inforamtion you need for troubleshooting on one place. 
+Collect the AKS EE Logs after the deployment and review them as they are all information you need for troubleshooting on one place. 
 
 ```bash 
 Get-AksEdgeLogs
@@ -148,14 +148,14 @@ form of a .zip folder normally created here C:\ProgramData\AksEdge\logs\
 
 ![RDP](./imgs/az-vm-nodes.jpg) 
 
-PS: Multi-node AKS on Edge on Windows will not work on Azure because it will not allow to create Hyper-V external virtual switch due to the limit of Azure network backbone, but we can create external swithch on Physical PC's Hyper-V, then it's possible to create a VM on the same Hyper-V host to communicate with the mariner VM via that external switch with the local ip in the pysical pc's local network. 
+PS: Multi-node AKS EE on Windows will not work on Azure because it will not allow to create Hyper-V external virtual switch due to the limit of Azure network backbone, but we can create external swithch on Physical PC's Hyper-V, then it's possible to create a VM on the same Hyper-V host to communicate with the mariner VM via that external switch with the local ip in the pysical pc's local network. 
 
 
-## Execise 3: Implment single machine deployment
+## Execise 3: Implement single machine deployment
 
 
 
-We have a Sample application that is a basic voting app consisting of a front and back end, which is based on Microsoft's azure-vote-front image. The container image for this application is hosted on Azure Container Registry (ACR).
+We have a Sample application that is a basic voting app consisting of a front and back end, which is based on Microsoft's azure-vote-front image. The container image for this application is hosted on Microsoft Container Registry (MCR)
 
 You can find the sample yaml file at location AKS-Edge/blob/main/samples/others/linux-sample.yaml
 
@@ -182,11 +182,11 @@ kubectl get services
 
 Initially, the EXTERNAL-IP for the azure-vote-front service is shown as pending. When the EXTERNAL-IP address changes from pending to an actual public IP address, you can use the IP address assigned to the service.
 
-PS:On single machine clusters, if you deployed your Kubernetes cluster without specifying a -ServiceIPRangeSize, you will not have allocated IPs for your workload services and you won't have an external IP address.
+PS: On single machine clusters, if you deployed your Kubernetes cluster without specifying a -ServiceIPRangeSize, you will not have allocated IPs for your workload services and you won't have an external IP address (in this case, find the IP address of your Linux VM with Get-AksEdgeNodeAddr command)
 
 You can now append the external port to the VM's IP address (for example, 192.168.1.12:30432).
 
-Test your Application 
+Test your application 
 ======================
 
 To see the application in action, open a web browser to the external IP address of your service:

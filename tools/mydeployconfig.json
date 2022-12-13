@@ -1,0 +1,65 @@
+{
+  "SchemaVersion": "1.1",
+  "Version": "1.0",
+  "KubernetesDistribution": "k3s",
+  "Azure": {
+    "ClusterName": "",
+    "Connect": true,
+    "Location": "",
+    "ResourceGroupName": "",
+    "SubscriptionId": "",
+    "TenantId": ""
+  },
+  "DeployOptions": {
+    "ControlPlane": false,
+    "Headless": false,
+    "JoinCluster": false,
+    "NetworkPlugin": "flannel",
+    "SingleMachineCluster": true,
+    "TimeoutSeconds": 300,
+    "NodeType": "Linux",
+    "ServerTLSBootstrap": false
+  },
+  "EndUser": {
+    "AcceptEula": false,
+    "AcceptOptionalTelemetry": false
+  },
+  "LinuxVm": {
+    "CpuCount": 2,
+    "MemoryInMB": 2048,
+    "DataSizeInGB": 10,
+    "Ip4Address": null,
+    "MacAddress": null,
+    "Mtu": 0
+  },
+  "WindowsVm": {
+    "CpuCount": 2,
+    "MemoryInMB": 2048,
+    "Ip4Address": null,
+    "MacAddress": null,
+    "Mtu": 0
+  },
+  "Network": {
+    "VSwitch": {
+      "Name": null,
+      "Type": null,
+      "AdapterName": null
+    },
+    "ControlPlaneEndpointIp": "",
+    "DnsServers": [
+      
+    ],
+    "InternetDisabled": false,
+    "Ip4GatewayAddress": "",
+    "Ip4PrefixLength": 24,
+    "ServiceIPRangeSize": 0,
+    "ServiceIPRangeStart": "",
+    "ServiceIPRangeEnd": "",
+    "SkipAddressFreeCheck": true,
+    "Proxy": {
+      "Http": "",
+      "Https": "",
+      "No": ""
+    }
+  }
+}
