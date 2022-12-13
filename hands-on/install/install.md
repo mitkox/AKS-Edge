@@ -34,8 +34,7 @@ Sign in to Azure portal at: https://portal.azure.com.
 2. In Azure portal, click **Create a resource**, select **Create** in the **Virtual machine** to open the **Create a virtual machine** page
 
 3. Create the VM with below settings  
-
-    ![Azure VM details](./imgs/az-vm-details.jpg)
+    <img src=./imgs/az-vm-details.jpg width=80% />
 
 * **Resource group**: your resource group name, ex: aks-edge-ee-lab-< your name >
 * **Virtual machine name**: your vm name, ex: aks-edge-ee-< your name >
@@ -45,7 +44,7 @@ Sign in to Azure portal at: https://portal.azure.com.
 
 * **Inbound port**: Allow inbound port rules for RDP connection as below
 
-    ![RDP](./imgs/az-vm-rdp.jpg)
+    <img src=./imgs/az-vm-rdp.jpg width=80% />
 
     Select **Review + Create** button at the bottom of the page to create virtual machine.
 
@@ -119,7 +118,7 @@ $jsonObj.Network.ServiceIpRangeSize = 40
 New-AksEdgeDeployment -JsonConfigString ($jsonObj | ConvertTo-Json)
  ```
 
-  ![RDP](./imgs/az-vm-single.jpg)
+  <img src=./imgs/az-vm-single.jpg width=80% />
 
 Confirm that the deployment was successful by running:
 =======
