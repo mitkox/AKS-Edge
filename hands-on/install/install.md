@@ -113,6 +113,7 @@ $jsonObj.EndUser.AcceptEula = $true
 $jsonObj.EndUser.AcceptOptionalTelemetry = $true
 $jsonObj.LinuxVm.CpuCount = 4
 $jsonObj.LinuxVm.MemoryInMB = 8192
+$jsonObj.LinuxVm.DataSizeinGB = 40
 $jsonObj.Network.ServiceIpRangeSize = 40
 
 New-AksEdgeDeployment -JsonConfigString ($jsonObj | ConvertTo-Json)
@@ -122,12 +123,28 @@ New-AksEdgeDeployment -JsonConfigString ($jsonObj | ConvertTo-Json)
 
 Confirm that the deployment was successful by running:
 =======
-Confirm that the deployment was successful the Mariner VM is listed with hcsdiag and the pods are running by running:
+Confirm that the deployment was successful the Mariner VM is listed with hcsdiag, WSSD Agent is operational and the pods are running by running:
 
 ```bash 
+hcsdiag list
 kubectl get nodes -o wide
 kubectl get pods -A -o wide
  ```
+Describe some of the pods' resources in verbose mode: 
+
+```bash 
+kubectl describe pod kube-apiserver -n kube-system
+ ```
+ 
+Collect the AKS Edge Logs after the deployment and review them as they are all inforamtion you need for troubleshooting on one place. 
+
+```bash 
+Get-AksEdgeLogs
+ ```
+The Get-AksEdgeLogs cmdlet collects all the logs from the AKS EE deployment and installation. It compresses them and outputs the bundled logs in the 
+form of a .zip folder normally created here C:\ProgramData\AksEdge\logs\
+
+ 
 
 ![RDP](./imgs/az-vm-nodes.jpg) 
 
