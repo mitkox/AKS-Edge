@@ -161,24 +161,24 @@ You can find the sample yaml file at location AKS-Edge/blob/main/samples/others/
 
 To deploy your application, use the kubectl apply 
 
-'''bash
+```bash 
 kubectl apply -f linux-sample.yaml
-'''bash
+```
 
 Wait a few minutes for the pods to be in the running state. Please run the command below after that
 
-'''bash
+```bash
 kubectl get pods -o wide
-'''bash
+```
 
 ![RDP](./imgs/az-vm-app.jpg)
 
 
 To check the external IP and port, please use the command below
 
-'''bash
+```bash
 kubectl get services
-'''bash
+```
 
 Initially, the EXTERNAL-IP for the azure-vote-front service is shown as pending. When the EXTERNAL-IP address changes from pending to an actual public IP address, you can use the IP address assigned to the service.
 
