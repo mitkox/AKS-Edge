@@ -34,7 +34,7 @@
 5. Run the windows console app with the appropriate parameters. For example
    
     ```
-    CompanionApp.exe -s 192.168.0.90 -p 49998
+    .\vote-win-app.exe -s 192.168.0.90 -p 49998
     ```
 
 6.  Once the application is running, you will see a prompt menu, select option (1) to (4) and ENTER to vote!. 
