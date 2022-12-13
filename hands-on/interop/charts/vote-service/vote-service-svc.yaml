@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vote-service-svc
+  namespace: interop
+spec:
+  type: LoadBalancer
+  ports:
+    - port: <host-port>
+      targetPort: <service-port-expose-on-container>
+  selector:
+    app: vote

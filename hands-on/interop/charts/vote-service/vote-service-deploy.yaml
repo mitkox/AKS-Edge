@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote-service-deploy
+  namespace: interop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vote
+  template:
+    metadata:
+      labels:
+        app: vote
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+        - name: vote-service-container
+          image: <ACR login server>/<name-of-container>:<tag-name>
+          ports:
+            - containerPort: <service-port-expose-on-container>
+          env:
+          - name: REDIS_HOST
+            value: "<service-name>.<namespace>.svc.cluster.local"
+          - name: REDIS_PORT
+            value: "6379"
+          - name: VOTESERVER_PORT
+            value: "<service-port-expose-on-container>"
+          - name: CANDIDATE_1_NAME
+            value: "Cat"
+          - name: CANDIDATE_2_NAME
+            value: "Dog"
