@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+  namespace: interop
+  labels:
+    app: redis
+spec:
+  serviceName: redis-svc
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+        - name: redis
+          image: 'redis:7.0.5-alpine'
+          command:
+            - "redis-server"
+          args:
+            - "/etc/redis/redis.conf"
+          ports:
+            - name: redis-6379
+              containerPort: 6379
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /etc/redis
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: config
+          configMap:
+            name: redis-config
+            items:
+              - key: redis-config
+                path: redis.conf
+        - name: data
+          persistentVolumeClaim:
+            claimName: redis-pvc

@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package vote;
+
+option csharp_namespace = "VoteApiNamespace";
+
+service VoteService {
+    rpc GetVote (google.protobuf.Empty) returns (GetVoteReply) {}
+    rpc Vote (VoteRequest) returns (VoteReply) {}
+    rpc Reset (google.protobuf.Empty) returns (ResetReply) {}
+}
+
+message Statistic {
+    string name = 1;
+    int32 ticket = 2;
+}
+
+message GetVoteReply {
+    repeated Statistic items = 1;
+}
+
+message VoteRequest {
+    string name = 1;
+}
+  
+message VoteReply {
+    Statistic item = 1;
+}
+
+message ResetReply { 
+    bool status = 1;
+}
