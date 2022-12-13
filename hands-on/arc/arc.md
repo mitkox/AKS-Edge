@@ -11,7 +11,7 @@ Connect your cluster to Arc:
 ## 1. Configure your Azure environment
 
 #### STEP 1: Create and verify a resource group for AKS Edge Essentials Azure resources
-![image](https://user-images.githubusercontent.com/10614734/207278790-50029c05-ad12-46fe-8483-71fc2ef18bd9.png)
+![image](https://user-images.githubusercontent.com/10614734/207283102-540bbafd-33f9-48d9-b148-c5b2d7e9c32c.png)
 
 #### STEP 2: Specify the required names for the resource group and service principal in the aide-userconfig.json file along with your subscription/tenant information.
 ![image](https://user-images.githubusercontent.com/10614734/207279084-ef8dcc2e-1f5f-42ba-b33a-9f33b0c04299.png)
@@ -61,5 +61,8 @@ Connect-AideArc
 
 ## 3. View AKS Edge resources in Azure
 ![image](https://user-images.githubusercontent.com/10614734/207281237-b224d065-7f9b-4bfe-b05b-3a1fc4febc11.png)
+
+#### Go to your ../tools/servicetoken.txt file, copy the full string, and paste it into the Azure portal. You can also run Get-AideArcKubernetesServiceToken to retrieve your service token.
+![image](https://user-images.githubusercontent.com/10614734/207283577-2419f14d-48f9-41fd-8f8d-13dc3c857a5a.png)
 
 
