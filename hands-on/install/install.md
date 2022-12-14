@@ -58,7 +58,7 @@ Sign in to Azure portal at: https://portal.azure.com.
     ```bash
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
     ```
-2. Restart the virtual machine to enable nested virtualization.
+2. Restart the virtual machine to enable hyper-v feature.
 
 3. Check if Hyper-V is enabled using following command:
     ```bash
