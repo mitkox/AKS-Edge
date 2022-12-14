@@ -34,7 +34,9 @@ Follow steps below, explained in [AKS EE documentation instructions](https://lea
 ![image](https://user-images.githubusercontent.com/10614734/207283890-8d3d00b3-068d-4464-bf86-59b7f7dcaf74.png)
 
 #### Step 1.2 : Specify the required names for the resource group and service principal in the aide-userconfig.json file along with your subscription/tenant information.
-![image](https://user-images.githubusercontent.com/10614734/207283953-bd9d54df-97f7-49b7-8266-f2e4a4fd9cdc.png)
+![image](https://user-images.githubusercontent.com/10614734/207516671-1976ef55-8d55-4df7-8748-21ff87545545.png)
+
+💡 Auth (Leave this blank, as it will be automatically filled in the next step)
 
 #### Step 1.3 : Run or double-click the AksEdgePrompt.cmd file (tools folder)
 ![image](https://user-images.githubusercontent.com/10614734/207279237-fde5a58a-e5b7-4a1b-b50d-e5b598bdd984.png)
