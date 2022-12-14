@@ -92,8 +92,9 @@ Now you are already setup your machine as Linux node.
 **OPTIONAL**: If you also want to add Windows node support to the machine please take below additional steps:
 
 1. Download the Windows node files from this [Link](https://aka.ms/aks-edge/windows-node-zip) and extract to a folder  
-2. Open Powershell as Administrator and navigate to folder above that contains the Windows node files.
-3. Run below command to start install
+2. Copy the AksEdge-k8s-0.7.22335.1024.msi file to extracted folder
+3. Open Powershell as Administrator and navigate to folder above that contains the Windows node files.
+4. Run below command to start install
     ```bash
     msiexec.exe /i AksEdge-k8s-0.7.22335.1024.msi ADDLOCAL=CoreFeature,WindowsNodeFeature
     ```
