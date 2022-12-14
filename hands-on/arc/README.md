@@ -33,7 +33,7 @@ Follow steps below, explained in [AKS EE documentation instructions](https://lea
 #### Step 1.1 : Create and verify a resource group for AKS Edge Essentials Azure resources
 ![image](https://user-images.githubusercontent.com/10614734/207283890-8d3d00b3-068d-4464-bf86-59b7f7dcaf74.png)
 
-#### Step 1.2 : Specify the required names for the resource group and service principal in the aide-userconfig.json file along with your subscription/tenant information.
+#### Step 1.2 : Specify the required names for the resource group and service principal in the aide-userconfig.json file along with your subscription/tenant information. You can use an existing service principal or if you add a new name, the system creates one for you in the next step.Please keep the ServicePrincipalId and Password empty and this will be created and updated in the following steps.
 ![image](https://user-images.githubusercontent.com/10614734/207516671-1976ef55-8d55-4df7-8748-21ff87545545.png)
 
 💡 Auth (Leave this blank, as it will be automatically filled in the next step)
