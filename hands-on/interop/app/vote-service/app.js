@@ -3,6 +3,7 @@ const protoLoader = require('@grpc/proto-loader');
 const redis = require('@redis/client');
 
 var PROTO_PATH = __dirname + '/proto/vote.proto';
+const VOTESERVER_PORT = 50001;
 const Candidate1Name = process.env.CANDIDATE_1_NAME;
 const Candidate2Name = process.env.CANDIDATE_2_NAME;
 
@@ -77,7 +78,7 @@ async function redisConnect() {
 
 redisConnect();
 
-grpcServer.bindAsync('0.0.0.0'.concat(':').concat(process.env.VOTESERVER_PORT), grpc.ServerCredentials.createInsecure(), (error, port) => {
+grpcServer.bindAsync('0.0.0.0'.concat(':').concat(VOTESERVER_PORT), grpc.ServerCredentials.createInsecure(), (error, port) => {
   if (!error) {
     console.log("gRPC Server started on port", port);
     grpcServer.start();

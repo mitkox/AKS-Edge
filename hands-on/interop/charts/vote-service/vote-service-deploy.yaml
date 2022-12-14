@@ -19,15 +19,13 @@ spec:
         - name: vote-service-container
           image: <ACR login server>/<name-of-container>:<tag-name>
           ports:
-            - containerPort: <service-port-expose-on-container>
+            - containerPort: 50001
           env:
           - name: REDIS_HOST
             value: "<service-name>.<namespace>.svc.cluster.local"
           - name: REDIS_PORT
             value: "6379"
-          - name: VOTESERVER_PORT
-            value: "<service-port-expose-on-container>"
           - name: CANDIDATE_1_NAME
-            value: "Cat"
+            value: "Cats"
           - name: CANDIDATE_2_NAME
-            value: "Dog"
+            value: "Dogs"

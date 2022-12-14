@@ -41,15 +41,13 @@
 
    1. In line 20, replace the `<ACR login server>/<name-of-container>:<tag-name>` to the container name you've pushed in Step 1 of this lab.
 
-   2. In line 22 and line 29, replace the `<service-port-expose-on-container>` to a port you want your service runs inside cluster network. Please note the `containerPort` in line 22 must be a integar, and `value` in line 29 must be string.
+   2. In line 25, replace the `<service-name>.<namespace>.svc.cluster.local` by the proper value get on your cluster.
    
-   3. The service is generic and we use `Cat` and `Dog` as candidate for voting. If you have other preference you can change it. 
+   3. The service is generic and we use `Cats` and `Dogs` as candidate for voting. If you have other preference you can change it. 
 
 3. Open the [vote-service-svc.yaml](../charts/vote-service/vote-service-svc.yaml) file to edit
 
-   1. In line 9, modify the `<host-port>` to a port that eventually you want to run on your host. 
-
-   2. In line 10, modify the `<service-port-expose-on-container>` to the same container port we specified in above step. 
+   1. In line 9, modify the `<service-port>` to a port you want vote-service run on the external IP address.
 
 4. On your Terminal, run below command in the [Charts](../charts/) folder to deploy resources.
 

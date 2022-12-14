@@ -7,6 +7,6 @@ spec:
   type: LoadBalancer
   ports:
     - port: <host-port>
-      targetPort: <service-port-expose-on-container>
+      targetPort: 50001
   selector:
     app: vote
