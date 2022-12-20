@@ -81,7 +81,9 @@ Initialize-AideArc
 # Connect Arc-enabled server and Arc-enabled Kubernetes
 Connect-AideArc
 ```
-![image](https://user-images.githubusercontent.com/10614734/207281095-afc7289f-0ac6-424b-a9f0-87e01159509a.png)
+![image](https://user-images.githubusercontent.com/10614734/208622508-3e416d8d-71c4-4c8c-bc3e-7ee68f99aa43.png)
+
+* 💡This step can take up to 10 minutes and PowerShell may be stuck on "Establishing Azure Connected Kubernetes for your cluster name". The PowerShell will output True and return to the prompt when the process is completed. A bearer token will be saved in servicetoken.txt in the tools folder.
 
 ## 3. Explore AKS EE cluster in Azure portal
 
