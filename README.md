@@ -15,6 +15,9 @@ This repository complements primary Azure Kubernetes Services Edge Essentials (a
 | [interop](./hands-on/interop/readme.md) |  Interoperability between AKS EE K8s/K3s cluster and native Windows applications. | 
 | cncf (to come) |  Usage of additional CNCF extension to extend AKS EE K8s/K3s cluster capabilities (eg. Helm, NGINX ...). | 
 
+> [!IMPORTANT]
+> 02/03/2023 -  Public preview has been refreshed! Try out our new bits.(Release Candidate for GA) (version 1.0.266.0).
+
 ## Important Links
 
 - AKS Edge Essentials Primary GitHub repository: https://github.com/Azure/AKS-Edge
