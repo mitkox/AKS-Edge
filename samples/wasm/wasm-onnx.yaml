@@ -28,7 +28,7 @@ spec:
             value: "400"
           ports:
           - containerPort: 3000
-            name: http_server
+            name: http-server
 ---
 apiVersion: v1
 kind: Service
